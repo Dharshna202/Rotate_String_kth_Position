@@ -1,0 +1,50 @@
+ 
+Rotate a String Left by K Positions  
+Write a program to rotate a given string s left by k positions without using any built-in string 
+functions.  
+For example, rotating "abcdef" by 2 would give "cdefab".  
+Instructions: Do not use built-in rotation or substring functions. Implement the logic 
+manually. 
+------ 
+CODE: 
+package main 
+import "fmt" 
+func getLen(s string) int { 
+counts := 0 
+for range s { 
+counts++ 
+} 
+return counts 
+} 
+func left_side_rotate(m string, q int) string { 
+r := getLen(m) 
+q = q % r  
+str_Rotate := "" 
+for i := q; i < r; i++ { 
+str_Rotate += string(m[i]) 
+} 
+for i := 0; i < q; i++ { 
+str_Rotate += string(m[i]) 
+} 
+return str_Rotate 
+} 
+func main() { 
+var m string 
+q := 2 
+fmt.Print("Enter the string: ") 
+fmt.Scanln(&m) 
+rotate := left_side_rotate(m, q) 
+fmt.Println("Rotated String:", rotate) 
+} 
+SAMPLE INPUT1: 
+Enter the string: abcdef 
+Rotated String: cdefab 
+SAMPLE INPUT2: 
+Enter the string: hello 
+Rotated String: llohe 
+SAMPLE INPUT3: 
+Enter the string: programming 
+Rotated String: ogrammingpr 
+SAMPLE INPUT4: 
+Enter the string: datastructures 
+Rotated String: tastructuresda
